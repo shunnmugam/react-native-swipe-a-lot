@@ -13,7 +13,6 @@ import { createStore } from 'redux'
 
 import { EventEmitter } from 'events'
 import PropTypes from 'prop-types';
-import  { ViewPager } from 'rn-viewpager';
 
 export default class SwipeALot extends Component {
   constructor(props) {
@@ -130,55 +129,32 @@ export default class SwipeALot extends Component {
           const page = this.getPage()
           this.swipeToPage(page)
         }}>
-        {(() => {
-          if (Platform.OS === 'ios') {
-            return (
-              <ScrollView
-                ref={(c) => this.swiper = c}
-                pagingEnabled={true}
-                horizontal={true}
-                bounces={false}
-                removeClippedSubviews={true}
-                showsHorizontalScrollIndicator={false}
-                showsVerticalScrollIndicator={false}
-                onMomentumScrollEnd={(e) => {
-                  const { width } = this.store.getState()
-                  const page = e.nativeEvent.contentOffset.x / width
-                  this.swipeToPage(page)
-                }}
-                onLayout={(event) => {
-                  const {x, y, width, height} = event.nativeEvent.layout
-                  this.store.dispatch({
-                    type: 'SET_DIMS',
-                    width,
-                    height
-                  })
-                }}
-                automaticallyAdjustContentInsets={false}>
-                {React.Children.map(this.props.children, (c, i) => {
-                  return <FixedSizeView store={this.store} key={`view${i}`}>{c}</FixedSizeView>
-                })}
-              </ScrollView>
-            )
-          }
-          else if (Platform.OS === 'android') {
-            return (
-              <ViewPager
-                ref={(c) => this.swiper = c}
-                initialPage={0}
-                onPageSelected={(e) => {
-                  this.swipeToPage(e.nativeEvent.position)
-                }}
-                style={{
-                  flex: 1
-                }}>
-                {React.Children.map(this.props.children, (c) => {
-                  return <View>{c}</View>
-                })}
-              </ViewPager>
-            )
-          }
-        })()}
+            <ScrollView
+              ref={(c) => this.swiper = c}
+              pagingEnabled={true}
+              horizontal={true}
+              bounces={false}
+              removeClippedSubviews={true}
+              showsHorizontalScrollIndicator={false}
+              showsVerticalScrollIndicator={false}
+              onMomentumScrollEnd={(e) => {
+                const { width } = this.store.getState()
+                const page = e.nativeEvent.contentOffset.x / width
+                this.swipeToPage(page)
+              }}
+              onLayout={(event) => {
+                const {x, y, width, height} = event.nativeEvent.layout
+                this.store.dispatch({
+                  type: 'SET_DIMS',
+                  width,
+                  height
+                })
+              }}
+              automaticallyAdjustContentInsets={false}>
+              {React.Children.map(this.props.children, (c, i) => {
+                return <FixedSizeView store={this.store} key={`view${i}`}>{c}</FixedSizeView>
+              })}
+            </ScrollView>
         <Circles store={this.store} emitter={this.emitter}
           circleWrapperStyle={this.props.circleWrapperStyle}
           circleDefaultStyle={this.props.circleDefaultStyle}
