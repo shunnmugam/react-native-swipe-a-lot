@@ -13,7 +13,7 @@ import { createStore } from 'redux'
 
 import { EventEmitter } from 'events'
 import PropTypes from 'prop-types';
-import ViewPager from '@react-native-community/viewpager';
+import  { ViewPager } from 'rn-viewpager';
 
 export default class SwipeALot extends Component {
   constructor(props) {
