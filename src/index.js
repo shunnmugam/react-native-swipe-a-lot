@@ -1,13 +1,9 @@
-import React, {
-  Component,
-  PropTypes
-} from 'react'
+import React, { Component} from 'react';
 import ReactNative, {
   Platform,
   ScrollView,
   View,
-  ViewPagerAndroid
-} from 'react-native'
+} from 'react-native';
 
 import Circles from './Circles'
 import FixedSizeView from './FixedSizeView'
@@ -16,6 +12,8 @@ import reducer from './reducer'
 import { createStore } from 'redux'
 
 import { EventEmitter } from 'events'
+import PropTypes from 'prop-types'
+import ViewPager from '@react-native-community/viewpager';
 
 export default class SwipeALot extends Component {
   constructor(props) {
@@ -165,7 +163,7 @@ export default class SwipeALot extends Component {
           }
           else if (Platform.OS === 'android') {
             return (
-              <ViewPagerAndroid
+              <ViewPager
                 ref={(c) => this.swiper = c}
                 initialPage={0}
                 onPageSelected={(e) => {
@@ -177,7 +175,7 @@ export default class SwipeALot extends Component {
                 {React.Children.map(this.props.children, (c) => {
                   return <View>{c}</View>
                 })}
-              </ViewPagerAndroid>
+              </ViewPager>
             )
           }
         })()}

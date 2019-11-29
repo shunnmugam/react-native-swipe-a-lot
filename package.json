@@ -1,13 +1,15 @@
 {
-  "name": "react-native-swipe-a-lot",
-  "version": "0.2.1",
+  "name": "react-native-swipe-a-lot-component",
+  "version": "0.0.1",
   "description": "A swipe component for React Native that works on iOS and Android.",
   "main": "src/index.js",
   "directories": {
     "example": "example"
   },
   "dependencies": {
-    "events": "^1.1.1"
+    "@react-native-community/viewpager": "^3.1.0",
+    "events": "^1.1.1",
+    "prop-types": "^15.7.2"
   },
   "devDependencies": {
     "ava": "^0.15.2",

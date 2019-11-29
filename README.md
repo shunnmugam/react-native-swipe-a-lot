@@ -36,13 +36,13 @@ I've found existing swiping components to be buggy and not working fully on both
 Install the npm package.
 
 ```
-npm i react-native-swipe-a-lot --save
+npm i react-native-swipe-a-lot-component --save
 ```
 
 Import the SwipeALot component wherever you'd like to use it.
 
 ```
-import SwipeALot from 'react-native-swipe-a-lot'
+import SwipeALot from 'react-native-swipe-a-lot-component'
 ```
 
 In your render method, simply use it as a wrapper around Views.
