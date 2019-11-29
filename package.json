@@ -31,7 +31,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nickjanssen/react-native-swipe-a-lot.git"
+    "url": "git+https://github.com/shunnmugam/react-native-swipe-a-lot"
   },
   "keywords": [
     "react",
@@ -47,7 +47,7 @@
   "author": "Nick Janssen",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nickjanssen/react-native-swipe-a-lot/issues"
+    "url": "https://github.com/shunnmugam/react-native-swipe-a-lot/issues"
   },
-  "homepage": "https://github.com/nickjanssen/react-native-swipe-a-lot#readme"
+  "homepage": "https://github.com/shunnmugam/react-native-swipe-a-lot#readme"
 }
