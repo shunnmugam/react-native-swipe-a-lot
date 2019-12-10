@@ -54,15 +54,15 @@ export default class SwipeALot extends Component {
         page
       })
 
-      if (Platform.OS === 'android') {
-        this.swiper.setPage(page)
-      }
-      else {
-        const { width } = this.store.getState()
-        this.swiper.scrollTo({
-          x: page * width
-        })
-      }
+      // if (Platform.OS === 'android') {
+      //   this.swiper.setPage(page)
+      // }
+      // else {
+      const { width } = this.store.getState()
+      this.swiper.scrollTo({
+        x: page * width
+      })
+      // }
 
       this.onSetActivePage(page)
       if (this.getAutoplaySettings().disableOnSwipe &&
